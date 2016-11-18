@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="git," />
 
 
 
@@ -84,19 +84,16 @@
 
 
 
-<meta name="description" content="起因一直在看别人博客的心得与技术分享，感觉很不错，既跟别人分享了自己的成果，也巩固了自己的技术，同时也提高了自己的写作水平！（滑稽脸）
-所以萌生了自己也搭建一个博客的想法，不过咱是技术小白，通过百度、谷歌来学学如何搭建博客吧！">
+<meta name="description" content="git 常用命令 – 来源：网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo Github搭建博客心得">
-<meta property="og:url" content="http://jason-zj.github.io/2016/11/10/Hexo-Github搭建博客心得/index.html">
+<meta property="og:title" content="Git 常用命令大全">
+<meta property="og:url" content="http://jason-zj.github.io/2016/11/18/Git-常用命令大全/index.html">
 <meta property="og:site_name" content="Blog - Jason">
-<meta property="og:description" content="起因一直在看别人博客的心得与技术分享，感觉很不错，既跟别人分享了自己的成果，也巩固了自己的技术，同时也提高了自己的写作水平！（滑稽脸）
-所以萌生了自己也搭建一个博客的想法，不过咱是技术小白，通过百度、谷歌来学学如何搭建博客吧！">
-<meta property="og:updated_time" content="2016-11-10T02:44:47.207Z">
+<meta property="og:description" content="git 常用命令 – 来源：网络">
+<meta property="og:updated_time" content="2016-11-18T02:31:13.499Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo Github搭建博客心得">
-<meta name="twitter:description" content="起因一直在看别人博客的心得与技术分享，感觉很不错，既跟别人分享了自己的成果，也巩固了自己的技术，同时也提高了自己的写作水平！（滑稽脸）
-所以萌生了自己也搭建一个博客的想法，不过咱是技术小白，通过百度、谷歌来学学如何搭建博客吧！">
+<meta name="twitter:title" content="Git 常用命令大全">
+<meta name="twitter:description" content="git 常用命令 – 来源：网络">
 
 
 
@@ -117,10 +114,10 @@
 
 
 
-  <link rel="canonical" href="http://jason-zj.github.io/2016/11/10/Hexo-Github搭建博客心得/"/>
+  <link rel="canonical" href="http://jason-zj.github.io/2016/11/18/Git-常用命令大全/"/>
 
 
-  <title> Hexo Github搭建博客心得 | Blog - Jason </title>
+  <title> Git 常用命令大全 | Blog - Jason </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -260,7 +257,7 @@
             
             
               
-                Hexo Github搭建博客心得
+                Git 常用命令大全
               
             
           </h1>
@@ -272,8 +269,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-10T09:34:11+08:00" content="2016-11-10">
-              2016-11-10
+            <time itemprop="dateCreated" datetime="2016-11-18T10:16:20+08:00" content="2016-11-18">
+              2016-11-18
             </time>
           </span>
 
@@ -286,8 +283,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
                   </a>
                 </span>
 
@@ -302,8 +299,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/10/Hexo-Github搭建博客心得/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/10/Hexo-Github搭建博客心得/" itemprop="commentsCount"></span>
+                <a href="/2016/11/18/Git-常用命令大全/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/18/Git-常用命令大全/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -326,37 +323,64 @@
       
 
       
-        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>一直在看别人博客的心得与技术分享，感觉很不错，既跟别人分享了自己的成果，也巩固了自己的技术，同时也提高了自己的写作水平！（滑稽脸）</p>
-<p>所以萌生了自己也搭建一个博客的想法，不过咱是技术小白，通过百度、谷歌来学学如何搭建博客吧！<br><a id="more"></a></p>
-<h1 id="误入歧途"><a href="#误入歧途" class="headerlink" title="误入歧途"></a>误入歧途</h1><p>可能用这个标题不太准确，至少不太精确。首先搜到的是</p>
-<blockquote>
-<p>使用Github和Jekyll搭建博客</p>
-</blockquote>
-<ul>
-<li>首先，Window 系统下，使用 RailsInstaller 来安装 Ruby 环境。</li>
-<li><code>$ ruby -v</code> 查看是否安装成功。</li>
-<li><code>$ gem install jekyll</code> 安装jekyll，竟然失败了！</li>
+        <p>git 常用命令 – 来源：网络</p>
+<a id="more"></a>
+<h2 id="远程仓库相关命令"><a href="#远程仓库相关命令" class="headerlink" title="远程仓库相关命令"></a>远程仓库相关命令</h2><ul>
+<li>检出仓库：$ git clone git://github.com/jquery/jquery.git</li>
+<li>查看远程仓库：$ git remote -v</li>
+<li>添加远程仓库：$ git remote add [name] [url]</li>
+<li>删除远程仓库：$ git remote rm [name]</li>
+<li>修改远程仓库：$ git remote set-url –push [name] [newUrl]</li>
+<li>拉取远程仓库：$ git pull [remoteName] [localBranchName]</li>
+<li>推送远程仓库：$ git push [remoteName] [localBranchName]</li>
 </ul>
-<p>于是我们的百度之旅又开始了，为毛会失败？百度了一番之后得到结果。<br>默认源被墙了，换个源就好 。<code>gem source -a http://rubygems.org/</code>换个源，再安装，果然成功了!不过这次百度之后，我看到了很多对jekyll的吐槽！</p>
-<blockquote>
-<p>对windows支持不好。以及生成文件慢。并且大家推荐了Hexo。</p>
-</blockquote>
-<h1 id="Hexo-之旅开始！"><a href="#Hexo-之旅开始！" class="headerlink" title="Hexo 之旅开始！"></a>Hexo 之旅开始！</h1><p>我是一个听人劝的人。既然大家力荐Hexo，我还何苦去花费时间去碰jekyll的壁。开始研究（<s>百度</s>）Hexo的搭建方法。</p>
-<p>环境：Git、NodeJs、Github</p>
-<p>安装好NodeJs后，找一个地方建一个blog的文件夹。如：D:\hexo ,打开git bash 。</p>
-<p>安装hexo</p>
-<p><pre>$ npm install hexo-cli -g</pre>初始化hexo</p>
-<p><pre>$ hexo init<br>$ npm install</pre>这时候你的hexo文件夹里面已经有很多文件了。</p>
-<p><pre>$ hexo g<br>$ hexo s<br></pre>当你看到这条信息的时候，浏览器打开<a href="http://localhost:4000/，恭喜你，博客搭建完成。" target="_blank" rel="external">http://localhost:4000/，恭喜你，博客搭建完成。</a><pre>INFO  Start processing<br>INFO  Hexo is running at <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>. Press Ctrl+C to stop.<br></pre></p>
-<h1 id="更改主题及优化"><a href="#更改主题及优化" class="headerlink" title="更改主题及优化"></a>更改主题及优化</h1><p>现在我们的本地博客已经搭建好了，可是不满足现状的我们，总是想追求完美，我选用的是简单大气的NexT主题。</p>
-<p>安装NexT主题<pre>$ git clone <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next</a> themes/next</pre>启用NexT主题。打开站点配置文件。如 d:/hexo/_config.yml，找到 theme 字段。修改为Next.</p>
-<p><pre>theme: next</pre></p>
-<blockquote>
-<p>特别注意：冒号与next中间要加一个空格。所有配置文件都要这么做，否则会出错！(<s>我才不会说，我就吃过这个亏！</s>)</p>
-</blockquote>
-<p>其他优化选择你所需要的进行修改。打开<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT 使用文档</a>对照相应配置进行更改。</p>
-<p>我个人加了多说、背景js以及一些常规配置。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>有些事情想起来难，做起来还是挺简单的。所以想到了就去做，Just Do It ！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git push origin test:master         // 提交本地test分支作为远程的master分支</div><div class="line">$ git push origin test:test              // 提交本地test分支作为远程的test分支</div></pre></td></tr></table></figure>
+<h2 id="分支-branch-操作相关命令"><a href="#分支-branch-操作相关命令" class="headerlink" title="分支(branch)操作相关命令"></a>分支(branch)操作相关命令</h2><ul>
+<li>查看本地分支：$ git branch</li>
+<li>查看远程分支：$ git branch -r</li>
+<li>创建本地分支：$ git branch [name] —-注意新分支创建后不会自动切换为当前分支</li>
+<li>切换分支：$ git checkout [name]</li>
+<li>创建新分支并立即切换到新分支：$ git checkout -b [name]</li>
+<li>删除分支：$ git branch -d [name] —- -d选项只能删除已经参与了合并的分支，对于未有合并的分支是无法删除的。如果想强制删除一个分支，可以使用-D选项</li>
+<li>合并分支：$ git merge [name] —-将名称为[name]的分支与当前分支合并</li>
+<li>创建远程分支(本地分支push到远程)：$ git push origin [name]</li>
+<li>删除远程分支：$ git push origin :heads/[name] 或 $ gitpush origin :[name] </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">*创建空的分支：(执行命令之前记得先提交你当前分支的修改，否则会被强制删干净没得后悔)</div><div class="line">$ git symbolic-ref HEAD refs/heads/[name]</div><div class="line">$ rm .git/index</div><div class="line">$ git clean -fdx</div></pre></td></tr></table></figure>
+<h2 id="版本-tag-操作相关命令"><a href="#版本-tag-操作相关命令" class="headerlink" title="版本(tag)操作相关命令"></a>版本(tag)操作相关命令</h2><ul>
+<li>查看版本：$ git tag</li>
+<li>创建版本：$ git tag [name]</li>
+<li>删除版本：$ git tag -d [name]</li>
+<li>查看远程版本：$ git tag -r</li>
+<li>创建远程版本(本地版本push到远程)：$ git push origin [name]</li>
+<li>删除远程版本：$ git push origin :refs/tags/[name]</li>
+<li>合并远程仓库的tag到本地：$ git pull origin –tags</li>
+<li>上传本地tag到远程仓库：$ git push origin –tags</li>
+<li>创建带注释的tag：$ git tag -a [name] -m ‘yourMessage’</li>
+</ul>
+<h2 id="子模块-submodule-相关操作命令"><a href="#子模块-submodule-相关操作命令" class="headerlink" title="子模块(submodule)相关操作命令"></a>子模块(submodule)相关操作命令</h2><ul>
+<li>添加子模块：$ git submodule add [url] [path]<br> 如：$ git submodule add git://github.com/soberh/ui-libs.git src/main/webapp/ui-libs</li>
+<li>初始化子模块：$ git submodule init  —-只在首次检出仓库时运行一次就行</li>
+<li>更新子模块：$ git submodule update —-每次更新或切换分支后都需要运行一下</li>
+<li>删除子模块：（分4步走哦）<ul>
+<li><ol>
+<li>$ git rm –cached [path]</li>
+</ol>
+</li>
+<li>2.编辑“.gitmodules”文件，将子模块的相关配置节点删除掉</li>
+<li>3.编辑“ .git/config”文件，将子模块的相关配置节点删除掉</li>
+<li>4.手动删除子模块残留的目录</li>
+</ul>
+</li>
+</ul>
+<h2 id="忽略一些文件、文件夹不提交"><a href="#忽略一些文件、文件夹不提交" class="headerlink" title="忽略一些文件、文件夹不提交"></a>忽略一些文件、文件夹不提交</h2><ul>
+<li>在仓库根目录下创建名称为“.gitignore”的文件，写入不需要的文件夹名或文件，每个元素占一行即可，如<ul>
+<li>target</li>
+<li>bin</li>
+<li>*.db</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -379,7 +403,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag">#hexo</a>
+            <a href="/tags/git/" rel="tag">#git</a>
           
         </div>
       
@@ -388,13 +412,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/11/10/Hexo-Github搭建博客心得/" rel="next" title="Hexo Github搭建博客心得">
+                <i class="fa fa-chevron-left"></i> Hexo Github搭建博客心得
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/18/Git-常用命令大全/" rel="prev" title="Git 常用命令大全">
-                Git 常用命令大全 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -420,8 +444,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/10/Hexo-Github搭建博客心得/"
-           data-title="Hexo Github搭建博客心得" data-url="http://jason-zj.github.io/2016/11/10/Hexo-Github搭建博客心得/">
+      <div class="ds-thread" data-thread-key="2016/11/18/Git-常用命令大全/"
+           data-title="Git 常用命令大全" data-url="http://jason-zj.github.io/2016/11/18/Git-常用命令大全/">
       </div>
     
   </div>
@@ -550,7 +574,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#起因"><span class="nav-number">1.</span> <span class="nav-text">起因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#误入歧途"><span class="nav-number">2.</span> <span class="nav-text">误入歧途</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-之旅开始！"><span class="nav-number">3.</span> <span class="nav-text">Hexo 之旅开始！</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更改主题及优化"><span class="nav-number">4.</span> <span class="nav-text">更改主题及优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#远程仓库相关命令"><span class="nav-number">1.</span> <span class="nav-text">远程仓库相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支-branch-操作相关命令"><span class="nav-number">2.</span> <span class="nav-text">分支(branch)操作相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本-tag-操作相关命令"><span class="nav-number">3.</span> <span class="nav-text">版本(tag)操作相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子模块-submodule-相关操作命令"><span class="nav-number">4.</span> <span class="nav-text">子模块(submodule)相关操作命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#忽略一些文件、文件夹不提交"><span class="nav-number">5.</span> <span class="nav-text">忽略一些文件、文件夹不提交</span></a></li></ol></div>
             
           </div>
         </section>
