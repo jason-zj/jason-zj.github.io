@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="for," />
 
 
 
@@ -84,15 +84,16 @@
 
 
 
-<meta name="description" content="blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Blog - Jason">
-<meta property="og:url" content="http://jason-zj.github.io/index.html">
+<meta name="description" content="for-in 循环的坑今天做项目时候发现了一个bug，原因是for-in引起的. 于是将 javascript 中     for 循环仔细的扒一扒！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于javascript中的for循环">
+<meta property="og:url" content="http://jason-zj.github.io/2016/11/23/关于javascript中的for循环/index.html">
 <meta property="og:site_name" content="Blog - Jason">
-<meta property="og:description" content="blog">
+<meta property="og:description" content="for-in 循环的坑今天做项目时候发现了一个bug，原因是for-in引起的. 于是将 javascript 中     for 循环仔细的扒一扒！">
+<meta property="og:updated_time" content="2016-11-23T01:30:08.262Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog - Jason">
-<meta name="twitter:description" content="blog">
+<meta name="twitter:title" content="关于javascript中的for循环">
+<meta name="twitter:description" content="for-in 循环的坑今天做项目时候发现了一个bug，原因是for-in引起的. 于是将 javascript 中     for 循环仔细的扒一扒！">
 
 
 
@@ -113,10 +114,10 @@
 
 
 
-  <link rel="canonical" href="http://jason-zj.github.io/"/>
+  <link rel="canonical" href="http://jason-zj.github.io/2016/11/23/关于javascript中的for循环/"/>
 
 
-  <title> Blog - Jason </title>
+  <title> 关于javascript中的for循环 | Blog - Jason </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -137,9 +138,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -236,9 +235,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -258,10 +257,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/11/23/关于javascript中的for循环/" itemprop="url">
-                  关于javascript中的for循环
-                </a>
+                关于javascript中的for循环
               
             
           </h1>
@@ -327,287 +323,88 @@
       
 
       
-        
-          <h3 id="for-in-循环的坑"><a href="#for-in-循环的坑" class="headerlink" title="for-in 循环的坑"></a>for-in 循环的坑</h3><p>今天做项目时候发现了一个bug，原因是for-in引起的. 于是将 javascript 中     <strong>for</strong> 循环仔细的扒一扒！<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/23/关于javascript中的for循环/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+        <h3 id="for-in-循环的坑"><a href="#for-in-循环的坑" class="headerlink" title="for-in 循环的坑"></a>for-in 循环的坑</h3><p>今天做项目时候发现了一个bug，原因是for-in引起的. 于是将 javascript 中     <strong>for</strong> 循环仔细的扒一扒！<br><a id="more"></a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> names = [<span class="string">"Jason"</span>,<span class="string">"Jack"</span>,<span class="string">"Lily"</span>];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> names)&#123;</div><div class="line">  <span class="built_in">console</span>.log(names[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样的情况是没有问题的。正常输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Jason</div><div class="line">Jack</div><div class="line">Lily</div></pre></td></tr></table></figure>
+<p>但是这样的情况就会出现问题：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> names = [<span class="string">"Jason"</span>,<span class="string">"Jack"</span>,<span class="string">"Lily"</span>];</div><div class="line">names.num = <span class="number">3</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> names)&#123;</div><div class="line">  <span class="built_in">console</span>.log(names[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Jason</div><div class="line">Jack</div><div class="line">Lily</div><div class="line">3</div></pre></td></tr></table></figure></p>
+<p>可见，for-in并不是数组遍历。而是把对象的属性也遍历出来了。所以在我们正常的项目中，用for-in来遍历对象的属性很好用，但是遍历数组就没那么好用了。</p>
+<h3 id="for与foreach"><a href="#for与foreach" class="headerlink" title="for与foreach"></a>for与foreach</h3><p>for循环：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> names = [<span class="string">"Jason"</span>,<span class="string">"Jack"</span>,<span class="string">"Lily"</span>];</div><div class="line">names.num = <span class="number">3</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;names.length;i++)&#123;</div><div class="line">  <span class="built_in">console</span>.log(names[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>输出正常，不会遍历对象的属性。这里的代码还可以优化一下。据大神们的测试，把length保存下来，性能上可以优化一下。如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> names = [<span class="string">"Jason"</span>,<span class="string">"Jack"</span>,<span class="string">"Lily"</span>];</div><div class="line">names.num = <span class="number">3</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>, len=names.length; i&lt;len;i++)&#123;</div><div class="line">  <span class="built_in">console</span>.log(names[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>万能的for循环还是比较好用的。</p>
+</blockquote>
+<p>forEach 方法为数组中含有有效值的每一项执行一次 callback 函数，已删除或者未赋值的项将被跳过。callback 函数会被依次传入三个参数：</p>
+<ul>
+<li>数组当前项的值</li>
+<li>数组当前项的索引</li>
+<li>数组对象本身</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> names = [<span class="string">"Jason"</span>,<span class="string">"Jack"</span>,<span class="string">"Lily"</span>];</div><div class="line">names.num = <span class="number">3</span>;</div><div class="line">names.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">name, index, arr</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(name);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Jason</div><div class="line">Jack</div><div class="line">Lily</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>forEach也有缺点。就是不能return、break。在遍历数组上性能也不能for</p>
+</blockquote>
+<h3 id="新方法-for-of"><a href="#新方法-for-of" class="headerlink" title="新方法 for-of"></a>新方法 for-of</h3><p>为解决for-in与forEach的问题。在ES6中引入了新方法 for-of 专注解决数组遍历问题。 以后for-in可以专心遍历对象的属性了~</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> names = [<span class="string">"Jason"</span>,<span class="string">"Jack"</span>,<span class="string">"Lily"</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> name <span class="keyword">of</span> names)&#123;</div><div class="line">  <span class="built_in">console</span>.log(name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>以上四种for循环方法各有优劣，应在实际项目中多加考虑。</p>
+
       
     </div>
 
     <div>
       
+        
+
+      
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/18/Git-常用命令大全/" itemprop="url">
-                  Git 常用命令大全
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-18T10:16:20+08:00" content="2016-11-18">
-              2016-11-18
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/18/Git-常用命令大全/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/18/Git-常用命令大全/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/for/" rel="tag">#for</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>git 常用命令 – 来源：网络</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/18/Git-常用命令大全/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/18/Git-常用命令大全/" rel="next" title="Git 常用命令大全">
+                <i class="fa fa-chevron-left"></i> Git 常用命令大全
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/10/Hexo-Github搭建博客心得/" itemprop="url">
-                  Hexo Github搭建博客心得
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-10T09:34:11+08:00" content="2016-11-10">
-              2016-11-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/10/Hexo-Github搭建博客心得/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/10/Hexo-Github搭建博客心得/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>一直在看别人博客的心得与技术分享，感觉很不错，既跟别人分享了自己的成果，也巩固了自己的技术，同时也提高了自己的写作水平！（滑稽脸）</p>
-<p>所以萌生了自己也搭建一个博客的想法，不过咱是技术小白，通过百度、谷歌来学学如何搭建博客吧！<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/10/Hexo-Github搭建博客心得/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -615,6 +412,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/23/关于javascript中的for循环/"
+           data-title="关于javascript中的for循环" data-url="http://jason-zj.github.io/2016/11/23/关于javascript中的for循环/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -634,8 +439,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -723,6 +537,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#for-in-循环的坑"><span class="nav-number">1.</span> <span class="nav-text">for-in 循环的坑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for与foreach"><span class="nav-number">2.</span> <span class="nav-text">for与foreach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新方法-for-of"><span class="nav-number">3.</span> <span class="nav-text">新方法 for-of</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -826,6 +651,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 
