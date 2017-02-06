@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="git," />
+  <meta name="keywords" content="for," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="git 常用命令 – 来源：网络">
+<meta name="description" content="for-in 循环的坑今天做项目时候发现了一个bug，原因是for-in引起的. 于是将 javascript 中     for 循环仔细的扒一扒！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git 常用命令大全">
-<meta property="og:url" content="http://jason-zj.github.io/2016/11/18/Git-常用命令大全/index.html">
+<meta property="og:title" content="关于javascript中的for循环">
+<meta property="og:url" content="http://jason-zj.github.io/2016/11/23/javascript-for/index.html">
 <meta property="og:site_name" content="Blog - Jason">
-<meta property="og:description" content="git 常用命令 – 来源：网络">
-<meta property="og:updated_time" content="2016-11-18T02:31:13.499Z">
+<meta property="og:description" content="for-in 循环的坑今天做项目时候发现了一个bug，原因是for-in引起的. 于是将 javascript 中     for 循环仔细的扒一扒！">
+<meta property="og:updated_time" content="2016-11-23T01:30:08.262Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git 常用命令大全">
-<meta name="twitter:description" content="git 常用命令 – 来源：网络">
+<meta name="twitter:title" content="关于javascript中的for循环">
+<meta name="twitter:description" content="for-in 循环的坑今天做项目时候发现了一个bug，原因是for-in引起的. 于是将 javascript 中     for 循环仔细的扒一扒！">
 
 
 
@@ -114,10 +114,10 @@
 
 
 
-  <link rel="canonical" href="http://jason-zj.github.io/2016/11/18/Git-常用命令大全/"/>
+  <link rel="canonical" href="http://jason-zj.github.io/2016/11/23/javascript-for/"/>
 
 
-  <title> Git 常用命令大全 | Blog - Jason </title>
+  <title> 关于javascript中的for循环 | Blog - Jason </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -257,7 +257,7 @@
             
             
               
-                Git 常用命令大全
+                关于javascript中的for循环
               
             
           </h1>
@@ -269,8 +269,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-18T10:16:20+08:00" content="2016-11-18">
-              2016-11-18
+            <time itemprop="dateCreated" datetime="2016-11-23T08:36:59+08:00" content="2016-11-23">
+              2016-11-23
             </time>
           </span>
 
@@ -283,8 +283,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
                   </a>
                 </span>
 
@@ -299,8 +299,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/18/Git-常用命令大全/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/18/Git-常用命令大全/" itemprop="commentsCount"></span>
+                <a href="/2016/11/23/javascript-for/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/23/javascript-for/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -323,64 +323,34 @@
       
 
       
-        <p>git 常用命令 – 来源：网络</p>
-<a id="more"></a>
-<h2 id="远程仓库相关命令"><a href="#远程仓库相关命令" class="headerlink" title="远程仓库相关命令"></a>远程仓库相关命令</h2><ul>
-<li>检出仓库：$ git clone git://github.com/jquery/jquery.git</li>
-<li>查看远程仓库：$ git remote -v</li>
-<li>添加远程仓库：$ git remote add [name] [url]</li>
-<li>删除远程仓库：$ git remote rm [name]</li>
-<li>修改远程仓库：$ git remote set-url –push [name] [newUrl]</li>
-<li>拉取远程仓库：$ git pull [remoteName] [localBranchName]</li>
-<li>推送远程仓库：$ git push [remoteName] [localBranchName]</li>
+        <h3 id="for-in-循环的坑"><a href="#for-in-循环的坑" class="headerlink" title="for-in 循环的坑"></a>for-in 循环的坑</h3><p>今天做项目时候发现了一个bug，原因是for-in引起的. 于是将 javascript 中     <strong>for</strong> 循环仔细的扒一扒！<br><a id="more"></a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> names = [<span class="string">"Jason"</span>,<span class="string">"Jack"</span>,<span class="string">"Lily"</span>];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> names)&#123;</div><div class="line">  <span class="built_in">console</span>.log(names[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样的情况是没有问题的。正常输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Jason</div><div class="line">Jack</div><div class="line">Lily</div></pre></td></tr></table></figure>
+<p>但是这样的情况就会出现问题：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> names = [<span class="string">"Jason"</span>,<span class="string">"Jack"</span>,<span class="string">"Lily"</span>];</div><div class="line">names.num = <span class="number">3</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> names)&#123;</div><div class="line">  <span class="built_in">console</span>.log(names[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Jason</div><div class="line">Jack</div><div class="line">Lily</div><div class="line">3</div></pre></td></tr></table></figure></p>
+<p>可见，for-in并不是数组遍历。而是把对象的属性也遍历出来了。所以在我们正常的项目中，用for-in来遍历对象的属性很好用，但是遍历数组就没那么好用了。</p>
+<h3 id="for与foreach"><a href="#for与foreach" class="headerlink" title="for与foreach"></a>for与foreach</h3><p>for循环：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> names = [<span class="string">"Jason"</span>,<span class="string">"Jack"</span>,<span class="string">"Lily"</span>];</div><div class="line">names.num = <span class="number">3</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;names.length;i++)&#123;</div><div class="line">  <span class="built_in">console</span>.log(names[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>输出正常，不会遍历对象的属性。这里的代码还可以优化一下。据大神们的测试，把length保存下来，性能上可以优化一下。如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> names = [<span class="string">"Jason"</span>,<span class="string">"Jack"</span>,<span class="string">"Lily"</span>];</div><div class="line">names.num = <span class="number">3</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>, len=names.length; i&lt;len;i++)&#123;</div><div class="line">  <span class="built_in">console</span>.log(names[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>万能的for循环还是比较好用的。</p>
+</blockquote>
+<p>forEach 方法为数组中含有有效值的每一项执行一次 callback 函数，已删除或者未赋值的项将被跳过。callback 函数会被依次传入三个参数：</p>
+<ul>
+<li>数组当前项的值</li>
+<li>数组当前项的索引</li>
+<li>数组对象本身</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git push origin test:master         // 提交本地test分支作为远程的master分支</div><div class="line">$ git push origin test:test              // 提交本地test分支作为远程的test分支</div></pre></td></tr></table></figure>
-<h2 id="分支-branch-操作相关命令"><a href="#分支-branch-操作相关命令" class="headerlink" title="分支(branch)操作相关命令"></a>分支(branch)操作相关命令</h2><ul>
-<li>查看本地分支：$ git branch</li>
-<li>查看远程分支：$ git branch -r</li>
-<li>创建本地分支：$ git branch [name] —-注意新分支创建后不会自动切换为当前分支</li>
-<li>切换分支：$ git checkout [name]</li>
-<li>创建新分支并立即切换到新分支：$ git checkout -b [name]</li>
-<li>删除分支：$ git branch -d [name] —- -d选项只能删除已经参与了合并的分支，对于未有合并的分支是无法删除的。如果想强制删除一个分支，可以使用-D选项</li>
-<li>合并分支：$ git merge [name] —-将名称为[name]的分支与当前分支合并</li>
-<li>创建远程分支(本地分支push到远程)：$ git push origin [name]</li>
-<li>删除远程分支：$ git push origin :heads/[name] 或 $ gitpush origin :[name] </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">*创建空的分支：(执行命令之前记得先提交你当前分支的修改，否则会被强制删干净没得后悔)</div><div class="line">$ git symbolic-ref HEAD refs/heads/[name]</div><div class="line">$ rm .git/index</div><div class="line">$ git clean -fdx</div></pre></td></tr></table></figure>
-<h2 id="版本-tag-操作相关命令"><a href="#版本-tag-操作相关命令" class="headerlink" title="版本(tag)操作相关命令"></a>版本(tag)操作相关命令</h2><ul>
-<li>查看版本：$ git tag</li>
-<li>创建版本：$ git tag [name]</li>
-<li>删除版本：$ git tag -d [name]</li>
-<li>查看远程版本：$ git tag -r</li>
-<li>创建远程版本(本地版本push到远程)：$ git push origin [name]</li>
-<li>删除远程版本：$ git push origin :refs/tags/[name]</li>
-<li>合并远程仓库的tag到本地：$ git pull origin –tags</li>
-<li>上传本地tag到远程仓库：$ git push origin –tags</li>
-<li>创建带注释的tag：$ git tag -a [name] -m ‘yourMessage’</li>
-</ul>
-<h2 id="子模块-submodule-相关操作命令"><a href="#子模块-submodule-相关操作命令" class="headerlink" title="子模块(submodule)相关操作命令"></a>子模块(submodule)相关操作命令</h2><ul>
-<li>添加子模块：$ git submodule add [url] [path]<br> 如：$ git submodule add git://github.com/soberh/ui-libs.git src/main/webapp/ui-libs</li>
-<li>初始化子模块：$ git submodule init  —-只在首次检出仓库时运行一次就行</li>
-<li>更新子模块：$ git submodule update —-每次更新或切换分支后都需要运行一下</li>
-<li>删除子模块：（分4步走哦）<ul>
-<li><ol>
-<li>$ git rm –cached [path]</li>
-</ol>
-</li>
-<li>2.编辑“.gitmodules”文件，将子模块的相关配置节点删除掉</li>
-<li>3.编辑“ .git/config”文件，将子模块的相关配置节点删除掉</li>
-<li>4.手动删除子模块残留的目录</li>
-</ul>
-</li>
-</ul>
-<h2 id="忽略一些文件、文件夹不提交"><a href="#忽略一些文件、文件夹不提交" class="headerlink" title="忽略一些文件、文件夹不提交"></a>忽略一些文件、文件夹不提交</h2><ul>
-<li>在仓库根目录下创建名称为“.gitignore”的文件，写入不需要的文件夹名或文件，每个元素占一行即可，如<ul>
-<li>target</li>
-<li>bin</li>
-<li>*.db</li>
-</ul>
-</li>
-</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> names = [<span class="string">"Jason"</span>,<span class="string">"Jack"</span>,<span class="string">"Lily"</span>];</div><div class="line">names.num = <span class="number">3</span>;</div><div class="line">names.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">name, index, arr</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(name);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Jason</div><div class="line">Jack</div><div class="line">Lily</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>forEach也有缺点。就是不能return、break。在遍历数组上性能也不能for</p>
+</blockquote>
+<h3 id="新方法-for-of"><a href="#新方法-for-of" class="headerlink" title="新方法 for-of"></a>新方法 for-of</h3><p>为解决for-in与forEach的问题。在ES6中引入了新方法 for-of 专注解决数组遍历问题。 以后for-in可以专心遍历对象的属性了~</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> names = [<span class="string">"Jason"</span>,<span class="string">"Jack"</span>,<span class="string">"Lily"</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> name <span class="keyword">of</span> names)&#123;</div><div class="line">  <span class="built_in">console</span>.log(name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>以上四种for循环方法各有优劣，应在实际项目中多加考虑。</p>
 
       
     </div>
@@ -403,7 +373,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag">#git</a>
+            <a href="/tags/for/" rel="tag">#for</a>
           
         </div>
       
@@ -412,16 +382,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/10/Hexo-Github搭建博客心得/" rel="next" title="Hexo Github搭建博客心得">
-                <i class="fa fa-chevron-left"></i> Hexo Github搭建博客心得
+              <a href="/2016/11/18/git-command/" rel="next" title="Git 常用命令大全">
+                <i class="fa fa-chevron-left"></i> Git 常用命令大全
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/23/关于javascript中的for循环/" rel="prev" title="关于javascript中的for循环">
-                关于javascript中的for循环 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/23/css3-animation/" rel="prev" title="CSS3中的animation">
+                CSS3中的animation <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -448,8 +418,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/18/Git-常用命令大全/"
-           data-title="Git 常用命令大全" data-url="http://jason-zj.github.io/2016/11/18/Git-常用命令大全/">
+      <div class="ds-thread" data-thread-key="2016/11/23/javascript-for/"
+           data-title="关于javascript中的for循环" data-url="http://jason-zj.github.io/2016/11/23/javascript-for/">
       </div>
     
   </div>
@@ -494,7 +464,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -511,7 +481,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -578,7 +548,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#远程仓库相关命令"><span class="nav-number">1.</span> <span class="nav-text">远程仓库相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支-branch-操作相关命令"><span class="nav-number">2.</span> <span class="nav-text">分支(branch)操作相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本-tag-操作相关命令"><span class="nav-number">3.</span> <span class="nav-text">版本(tag)操作相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子模块-submodule-相关操作命令"><span class="nav-number">4.</span> <span class="nav-text">子模块(submodule)相关操作命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#忽略一些文件、文件夹不提交"><span class="nav-number">5.</span> <span class="nav-text">忽略一些文件、文件夹不提交</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#for-in-循环的坑"><span class="nav-number">1.</span> <span class="nav-text">for-in 循环的坑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for与foreach"><span class="nav-number">2.</span> <span class="nav-text">for与foreach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新方法-for-of"><span class="nav-number">3.</span> <span class="nav-text">新方法 for-of</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
         </section>
@@ -597,7 +567,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

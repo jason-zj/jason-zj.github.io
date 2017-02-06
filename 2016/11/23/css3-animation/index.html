@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JSON," />
+  <meta name="keywords" content="css3,animation," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="有时候我们需要把JSON对象转化成GET请求来发送。这时候就需要我们写正则来进行转换了。">
+<meta name="description" content="等待按钮的3个点上的animation应用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JSON对象转化GET请求">
-<meta property="og:url" content="http://jason-zj.github.io/2016/12/29/JSON对象转化GET请求/index.html">
+<meta property="og:title" content="CSS3中的animation">
+<meta property="og:url" content="http://jason-zj.github.io/2016/11/23/css3-animation/index.html">
 <meta property="og:site_name" content="Blog - Jason">
-<meta property="og:description" content="有时候我们需要把JSON对象转化成GET请求来发送。这时候就需要我们写正则来进行转换了。">
-<meta property="og:updated_time" content="2016-12-29T05:41:08.668Z">
+<meta property="og:description" content="等待按钮的3个点上的animation应用">
+<meta property="og:updated_time" content="2016-11-23T07:51:26.637Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JSON对象转化GET请求">
-<meta name="twitter:description" content="有时候我们需要把JSON对象转化成GET请求来发送。这时候就需要我们写正则来进行转换了。">
+<meta name="twitter:title" content="CSS3中的animation">
+<meta name="twitter:description" content="等待按钮的3个点上的animation应用">
 
 
 
@@ -114,10 +114,10 @@
 
 
 
-  <link rel="canonical" href="http://jason-zj.github.io/2016/12/29/JSON对象转化GET请求/"/>
+  <link rel="canonical" href="http://jason-zj.github.io/2016/11/23/css3-animation/"/>
 
 
-  <title> JSON对象转化GET请求 | Blog - Jason </title>
+  <title> CSS3中的animation | Blog - Jason </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -257,7 +257,7 @@
             
             
               
-                JSON对象转化GET请求
+                CSS3中的animation
               
             
           </h1>
@@ -269,8 +269,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-29T10:41:00+08:00" content="2016-12-29">
-              2016-12-29
+            <time itemprop="dateCreated" datetime="2016-11-23T15:06:04+08:00" content="2016-11-23">
+              2016-11-23
             </time>
           </span>
 
@@ -283,8 +283,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
+                  <a href="/categories/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
                   </a>
                 </span>
 
@@ -299,8 +299,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/29/JSON对象转化GET请求/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/29/JSON对象转化GET请求/" itemprop="commentsCount"></span>
+                <a href="/2016/11/23/css3-animation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/23/css3-animation/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -323,9 +323,30 @@
       
 
       
-        <p>有时候我们需要把JSON对象转化成GET请求来发送。这时候就需要我们写正则来进行转换了。</p>
-<a id="more"></a>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">JsonToGetFun</span>(<span class="params">json</span>) </span>&#123; </div><div class="line">	str=<span class="built_in">JSON</span>.stringify(json);</div><div class="line">	str= str.replace(<span class="regexp">/\t/g</span>, <span class="string">""</span>);</div><div class="line">	str= str.replace(<span class="regexp">/\"/g</span>, <span class="string">""</span>).replace(<span class="regexp">/&#123;/g</span>, <span class="string">""</span>).replace(<span class="regexp">/&#125;/g</span>, <span class="string">""</span>).replace(<span class="regexp">/,/g</span>, <span class="string">"&amp;"</span>).replace(<span class="regexp">/:/g</span>, <span class="string">"="</span>);            </div><div class="line">	<span class="keyword">return</span> str;</div><div class="line"> &#125;</div><div class="line"><span class="keyword">var</span> json = &#123;</div><div class="line">	<span class="string">"name"</span>:<span class="string">"jason"</span>,</div><div class="line">	<span class="string">"age"</span>:<span class="number">27</span>,</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(JsonToGetFun(json));<span class="comment">// name=jason&amp;age=27</span></div></pre></td></tr></table></figure>
+        <h2 id="等待按钮的3个点上的animation应用"><a href="#等待按钮的3个点上的animation应用" class="headerlink" title="等待按钮的3个点上的animation应用"></a>等待按钮的3个点上的animation应用</h2><a id="more"></a>
+<blockquote>
+<p>html </p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void(0)"</span>&gt;</span>订单提交中<span class="tag">&lt;<span class="name">dot</span>&gt;</span>...<span class="tag">&lt;/<span class="name">dot</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>css</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">dot</span> &#123;</div><div class="line">	<span class="attribute">display</span>: inline-block; </div><div class="line">	<span class="attribute">height</span>: <span class="number">1em</span>; <span class="attribute">line-height</span>: <span class="number">1</span>;</div><div class="line">	<span class="attribute">vertical-align</span>: -.<span class="number">25em</span>;</div><div class="line">	<span class="attribute">overflow</span>: hidden;</div><div class="line">	<span class="attribute">text-align</span>:left</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">dot</span><span class="selector-pseudo">::before</span> &#123;</div><div class="line">	<span class="attribute">display</span>: block;</div><div class="line">	<span class="attribute">content</span>: <span class="string">'...\A..\A.'</span>;</div><div class="line">	<span class="attribute">white-space</span>: pre-wrap;</div><div class="line">	<span class="attribute">animation</span>: dot <span class="number">3s</span> infinite step-start both;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">keyframes</span> dot &#123;</div><div class="line">	33% &#123; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-2em); &#125;</div><div class="line">	66% &#123; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-1em); &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>利用content中 \A 换行。再由animation动画完成每行的切换。达到1-3个点的动画效果。其中animation 中的step-start与 steps(2,start)等义。意思分2步，从start开始。</p>
+</blockquote>
+<h2 id="动图动画效果"><a href="#动图动画效果" class="headerlink" title="动图动画效果"></a>动图动画效果</h2><blockquote>
+<p>html </p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"heart"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>css</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.heart</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">100px</span>; <span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">'http://p1.bpimg.com/567571/6d6613b2d25f50a7.png'</span>);</div><div class="line">	<span class="attribute">-webkit-animation</span>: animate <span class="number">1s</span> <span class="built_in">steps</span>(28) infinite;</div><div class="line">			<span class="attribute">animation</span>: animate <span class="number">1s</span> <span class="built_in">steps</span>(28) infinite;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">keyframes</span> animate &#123;</div><div class="line">	<span class="selector-tag">from</span> &#123;</div><div class="line">		<span class="attribute">background-position</span>: <span class="number">0</span> <span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="selector-tag">to</span> &#123;</div><div class="line">		<span class="attribute">background-position</span>: -<span class="number">2800px</span> <span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>将每一帧图片做成一个动画。此处animation使用了steps属性。</p>
+</blockquote>
+
       
     </div>
 
@@ -347,7 +368,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JSON/" rel="tag">#JSON</a>
+            <a href="/tags/css3/" rel="tag">#css3</a>
+          
+            <a href="/tags/animation/" rel="tag">#animation</a>
           
         </div>
       
@@ -356,13 +379,17 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/25/对正则表达式难点的理解/" rel="next" title="对正则表达式难点的理解">
-                <i class="fa fa-chevron-left"></i> 对正则表达式难点的理解
+              <a href="/2016/11/23/javascript-for/" rel="next" title="关于javascript中的for循环">
+                <i class="fa fa-chevron-left"></i> 关于javascript中的for循环
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/25/js-regular/" rel="prev" title="对正则表达式难点的理解">
+                对正则表达式难点的理解 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -388,8 +415,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/29/JSON对象转化GET请求/"
-           data-title="JSON对象转化GET请求" data-url="http://jason-zj.github.io/2016/12/29/JSON对象转化GET请求/">
+      <div class="ds-thread" data-thread-key="2016/11/23/css3-animation/"
+           data-title="CSS3中的animation" data-url="http://jason-zj.github.io/2016/11/23/css3-animation/">
       </div>
     
   </div>
@@ -434,7 +461,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -451,7 +478,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -518,7 +545,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#等待按钮的3个点上的animation应用"><span class="nav-number">1.</span> <span class="nav-text">等待按钮的3个点上的animation应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动图动画效果"><span class="nav-number">2.</span> <span class="nav-text">动图动画效果</span></a></li></ol></div>
             
           </div>
         </section>
@@ -537,7 +564,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

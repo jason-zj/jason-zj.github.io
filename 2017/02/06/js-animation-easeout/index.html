@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="正则表达式," />
+  <meta name="keywords" content="动画," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="正则表达式对初学者来说，真是又爱又恨，爱的是它超强大的功能，恨的是语法的晦涩，很多网络给的解释更是难以理解，这里给出我对正则表达式难点的理解。">
+<meta name="description" content="避免线性动画效果粗糙，又不想引用各种库，此段js即可解决缓动效果。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="对正则表达式难点的理解">
-<meta property="og:url" content="http://jason-zj.github.io/2016/11/25/对正则表达式难点的理解/index.html">
+<meta property="og:title" content="Tip:JS缓动动画算法">
+<meta property="og:url" content="http://jason-zj.github.io/2017/02/06/js-animation-easeout/index.html">
 <meta property="og:site_name" content="Blog - Jason">
-<meta property="og:description" content="正则表达式对初学者来说，真是又爱又恨，爱的是它超强大的功能，恨的是语法的晦涩，很多网络给的解释更是难以理解，这里给出我对正则表达式难点的理解。">
-<meta property="og:updated_time" content="2016-11-25T03:21:37.707Z">
+<meta property="og:description" content="避免线性动画效果粗糙，又不想引用各种库，此段js即可解决缓动效果。">
+<meta property="og:updated_time" content="2017-02-06T06:45:15.873Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="对正则表达式难点的理解">
-<meta name="twitter:description" content="正则表达式对初学者来说，真是又爱又恨，爱的是它超强大的功能，恨的是语法的晦涩，很多网络给的解释更是难以理解，这里给出我对正则表达式难点的理解。">
+<meta name="twitter:title" content="Tip:JS缓动动画算法">
+<meta name="twitter:description" content="避免线性动画效果粗糙，又不想引用各种库，此段js即可解决缓动效果。">
 
 
 
@@ -114,10 +114,10 @@
 
 
 
-  <link rel="canonical" href="http://jason-zj.github.io/2016/11/25/对正则表达式难点的理解/"/>
+  <link rel="canonical" href="http://jason-zj.github.io/2017/02/06/js-animation-easeout/"/>
 
 
-  <title> 对正则表达式难点的理解 | Blog - Jason </title>
+  <title> Tip:JS缓动动画算法 | Blog - Jason </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -257,7 +257,7 @@
             
             
               
-                对正则表达式难点的理解
+                Tip:JS缓动动画算法
               
             
           </h1>
@@ -269,8 +269,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-25T10:23:38+08:00" content="2016-11-25">
-              2016-11-25
+            <time itemprop="dateCreated" datetime="2017-02-06T13:42:57+08:00" content="2017-02-06">
+              2017-02-06
             </time>
           </span>
 
@@ -299,8 +299,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/25/对正则表达式难点的理解/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/25/对正则表达式难点的理解/" itemprop="commentsCount"></span>
+                <a href="/2017/02/06/js-animation-easeout/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/06/js-animation-easeout/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -323,103 +323,11 @@
       
 
       
-        <p>正则表达式对初学者来说，真是又爱又恨，爱的是它超强大的功能，恨的是语法的晦涩，很多网络给的解释更是难以理解，这里给出我对正则表达式难点的理解。<br><a id="more"></a></p>
-<h2 id="罗列一下正则表达式常用的代码"><a href="#罗列一下正则表达式常用的代码" class="headerlink" title="罗列一下正则表达式常用的代码"></a>罗列一下正则表达式常用的代码</h2><p>首先罗列一下常用的元字符及限定符，作为速查工具。</p>
-<table>
-<thead>
-<tr>
-<th>代码</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>.</td>
-<td style="text-align:center">匹配除换行符以外的任意字符</td>
-</tr>
-<tr>
-<td>\w</td>
-<td style="text-align:center">匹配字母或数字或下划线或汉字</td>
-</tr>
-<tr>
-<td>\s</td>
-<td style="text-align:center">匹配任意的空白符</td>
-</tr>
-<tr>
-<td>\d</td>
-<td style="text-align:center">匹配数字</td>
-</tr>
-<tr>
-<td>\b</td>
-<td style="text-align:center">匹配单词的开始或结束</td>
-</tr>
-<tr>
-<td>^</td>
-<td style="text-align:center">匹配字符串的开始</td>
-</tr>
-<tr>
-<td>$</td>
-<td style="text-align:center">匹配字符串的结束</td>
-</tr>
-<tr>
-<td>*</td>
-<td style="text-align:center">重复零次或更多次</td>
-</tr>
-<tr>
-<td>+</td>
-<td style="text-align:center">重复一次或更多次</td>
-</tr>
-<tr>
-<td>?</td>
-<td style="text-align:center">重复零次或一次</td>
-</tr>
-<tr>
-<td>{n}</td>
-<td style="text-align:center">重复n次</td>
-</tr>
-<tr>
-<td>{n,}</td>
-<td style="text-align:center">重复n次或更多次</td>
-</tr>
-<tr>
-<td>{n,m}</td>
-<td style="text-align:center">重复n到m次</td>
-</tr>
-<tr>
-<td>[^x]</td>
-<td style="text-align:center">匹配除了x以外的任意字符</td>
-</tr>
-<tr>
-<td>\D(大写)</td>
-<td style="text-align:center">匹配任意不是数字的字符(即小写的反义，其他雷同)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="难点-exp-、-exp-、-exp"><a href="#难点-exp-、-exp-、-exp" class="headerlink" title="难点 (?=exp)、(?!exp)、(?:exp)"></a>难点 (?=exp)、(?!exp)、(?:exp)</h2><ul>
-<li><p>(?=exp) 学名 零宽度正预测先行断言，是不是一脸懵比。what’s this？我们别管如何定义，知道怎么用，如何用就可以了。这个的意思是<strong>匹配exp前面的位置</strong>。</p>
-<blockquote>
-<p>比如/\w+(?=ing)/ 就是匹配ing前面的位置。可以匹配字符串”singing”、”dancing”中的”sing、danc’ 。</p>
-</blockquote>
-</li>
-<li><p>(?!exp) 学名 零宽度负预测先行断言，这个的意思是 <strong>匹配后面跟的不是exp的位置</strong></p>
-<blockquote>
-<p>比如 /\d{3}(?!\d)/ 的意思就是匹配后面不能跟着数字的三位数字。</p>
-</blockquote>
-</li>
-<li><p>(?:exp) 非捕获匹配，意思即匹配 exp 但不捕获该匹配的子表达式。多用于or字符(|)组合模式。解释比较拗口，我们来举个例子。</p>
-</li>
-</ul>
-<blockquote>
-<p>例子：给一串数字添加千分位分隔符。</p>
-</blockquote>
-<p>先给出代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">toThousands</span>(<span class="params">num</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> (num || <span class="number">0</span>).toString().replace(<span class="regexp">/(\d&#123;1,3&#125;)(?=(\d&#123;3&#125;)+(?:$|\.))/g</span>, <span class="string">'$1,'</span>);</div><div class="line">&#125;</div><div class="line">toThousands(<span class="number">1234567890.12</span>); <span class="comment">// "1,234,567,890.12"</span></div></pre></td></tr></table></figure></p>
-<p>此处正则 /(\d{1,3})(?=(\d{3})+(?:$|.))/g</p>
-<ul>
-<li>(\d{1,3}) //数字(1-3位)</li>
-<li>(?=(\d{3})+(?:$|.)) // 匹配后面跟着3位数字(一次或者多次出现)、非捕获匹配结尾或者字符(.)</li>
-</ul>
-<p>整句的意思，匹配以结尾或者字符(.)前面的 3位数字(一次或者多次出现) 之前的1-3位数字。替换为(匹配结果+,)。即上述的 1234567890.12 匹配的有1、234、567 以 1, 、234, 、567, 替换。达到添加千分位的效果。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>正则表达式在程序中应用非常普遍，学习正则表达式非常重要，虽然大部分表达式可以百度的到，但是可能与你实际需求不太一样。这时候懂得原理就特别重要了，简单的调整一下就可以使用了。</p>
+        <p>避免线性动画效果粗糙，又不想引用各种库，此段js即可解决缓动效果。</p>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.easeout = <span class="function"><span class="keyword">function</span> (<span class="params">A, B, rate, callback</span>) </span>&#123;</div><div class="line">     <span class="comment">//A是起始位置；B是目标位置；rate是缓动速率；</span></div><div class="line">    <span class="comment">//callback是变化的位置回调，支持两个参数，value和isEnding，表示当前的位置值（数值）以及是否动画结束了（布尔值）；</span></div><div class="line">    <span class="keyword">if</span> (A == B || <span class="keyword">typeof</span> A != <span class="string">'number'</span>) &#123;</div><div class="line">        <span class="keyword">return</span>;    </div><div class="line">    &#125;</div><div class="line">    B = B || <span class="number">0</span>;</div><div class="line">    rate = rate || <span class="number">2</span>;</div><div class="line">    </div><div class="line">    <span class="keyword">var</span> step = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        A = A + (B - A) / rate;</div><div class="line">        </div><div class="line">        <span class="keyword">if</span> (<span class="built_in">Math</span>.abs(A - B) &lt; <span class="number">1</span>) &#123;</div><div class="line">            callback(B, <span class="literal">true</span>);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        callback(A, <span class="literal">false</span>);</div><div class="line">        requestAnimationFrame(step);    </div><div class="line">    &#125;;</div><div class="line">    step();</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>返回顶部效果：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> doc = <span class="built_in">document</span>.body.scrollTop ? <span class="built_in">document</span>.body : <span class="built_in">document</span>.documentElement;</div><div class="line"><span class="built_in">Math</span>.easeout(doc.scrollTop, <span class="number">2000</span>, <span class="number">4</span>, <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">    doc.scrollTop = value;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -442,7 +350,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/正则表达式/" rel="tag">#正则表达式</a>
+            <a href="/tags/动画/" rel="tag">#动画</a>
           
         </div>
       
@@ -451,17 +359,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/23/CSS3中的animation/" rel="next" title="CSS3中的animation">
-                <i class="fa fa-chevron-left"></i> CSS3中的animation
+              <a href="/2016/12/29/json-to-get/" rel="next" title="JSON对象转化GET请求">
+                <i class="fa fa-chevron-left"></i> JSON对象转化GET请求
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/29/JSON对象转化GET请求/" rel="prev" title="JSON对象转化GET请求">
-                JSON对象转化GET请求 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -487,8 +391,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/25/对正则表达式难点的理解/"
-           data-title="对正则表达式难点的理解" data-url="http://jason-zj.github.io/2016/11/25/对正则表达式难点的理解/">
+      <div class="ds-thread" data-thread-key="2017/02/06/js-animation-easeout/"
+           data-title="Tip:JS缓动动画算法" data-url="http://jason-zj.github.io/2017/02/06/js-animation-easeout/">
       </div>
     
   </div>
@@ -533,7 +437,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -550,7 +454,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -617,7 +521,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#罗列一下正则表达式常用的代码"><span class="nav-number">1.</span> <span class="nav-text">罗列一下正则表达式常用的代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#难点-exp-、-exp-、-exp"><span class="nav-number">2.</span> <span class="nav-text">难点 (?=exp)、(?!exp)、(?:exp)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
@@ -636,7 +540,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

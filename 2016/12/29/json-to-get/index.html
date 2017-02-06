@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="for," />
+  <meta name="keywords" content="JSON," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="for-in 循环的坑今天做项目时候发现了一个bug，原因是for-in引起的. 于是将 javascript 中     for 循环仔细的扒一扒！">
+<meta name="description" content="有时候我们需要把JSON对象转化成GET请求来发送。这时候就需要我们写正则来进行转换了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于javascript中的for循环">
-<meta property="og:url" content="http://jason-zj.github.io/2016/11/23/关于javascript中的for循环/index.html">
+<meta property="og:title" content="JSON对象转化GET请求">
+<meta property="og:url" content="http://jason-zj.github.io/2016/12/29/json-to-get/index.html">
 <meta property="og:site_name" content="Blog - Jason">
-<meta property="og:description" content="for-in 循环的坑今天做项目时候发现了一个bug，原因是for-in引起的. 于是将 javascript 中     for 循环仔细的扒一扒！">
-<meta property="og:updated_time" content="2016-11-23T01:30:08.262Z">
+<meta property="og:description" content="有时候我们需要把JSON对象转化成GET请求来发送。这时候就需要我们写正则来进行转换了。">
+<meta property="og:updated_time" content="2016-12-29T05:41:08.668Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于javascript中的for循环">
-<meta name="twitter:description" content="for-in 循环的坑今天做项目时候发现了一个bug，原因是for-in引起的. 于是将 javascript 中     for 循环仔细的扒一扒！">
+<meta name="twitter:title" content="JSON对象转化GET请求">
+<meta name="twitter:description" content="有时候我们需要把JSON对象转化成GET请求来发送。这时候就需要我们写正则来进行转换了。">
 
 
 
@@ -114,10 +114,10 @@
 
 
 
-  <link rel="canonical" href="http://jason-zj.github.io/2016/11/23/关于javascript中的for循环/"/>
+  <link rel="canonical" href="http://jason-zj.github.io/2016/12/29/json-to-get/"/>
 
 
-  <title> 关于javascript中的for循环 | Blog - Jason </title>
+  <title> JSON对象转化GET请求 | Blog - Jason </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -257,7 +257,7 @@
             
             
               
-                关于javascript中的for循环
+                JSON对象转化GET请求
               
             
           </h1>
@@ -269,8 +269,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-23T08:36:59+08:00" content="2016-11-23">
-              2016-11-23
+            <time itemprop="dateCreated" datetime="2016-12-29T10:41:00+08:00" content="2016-12-29">
+              2016-12-29
             </time>
           </span>
 
@@ -299,8 +299,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/23/关于javascript中的for循环/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/23/关于javascript中的for循环/" itemprop="commentsCount"></span>
+                <a href="/2016/12/29/json-to-get/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/29/json-to-get/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -323,35 +323,9 @@
       
 
       
-        <h3 id="for-in-循环的坑"><a href="#for-in-循环的坑" class="headerlink" title="for-in 循环的坑"></a>for-in 循环的坑</h3><p>今天做项目时候发现了一个bug，原因是for-in引起的. 于是将 javascript 中     <strong>for</strong> 循环仔细的扒一扒！<br><a id="more"></a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> names = [<span class="string">"Jason"</span>,<span class="string">"Jack"</span>,<span class="string">"Lily"</span>];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> names)&#123;</div><div class="line">  <span class="built_in">console</span>.log(names[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这样的情况是没有问题的。正常输出：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Jason</div><div class="line">Jack</div><div class="line">Lily</div></pre></td></tr></table></figure>
-<p>但是这样的情况就会出现问题：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> names = [<span class="string">"Jason"</span>,<span class="string">"Jack"</span>,<span class="string">"Lily"</span>];</div><div class="line">names.num = <span class="number">3</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> names)&#123;</div><div class="line">  <span class="built_in">console</span>.log(names[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Jason</div><div class="line">Jack</div><div class="line">Lily</div><div class="line">3</div></pre></td></tr></table></figure></p>
-<p>可见，for-in并不是数组遍历。而是把对象的属性也遍历出来了。所以在我们正常的项目中，用for-in来遍历对象的属性很好用，但是遍历数组就没那么好用了。</p>
-<h3 id="for与foreach"><a href="#for与foreach" class="headerlink" title="for与foreach"></a>for与foreach</h3><p>for循环：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> names = [<span class="string">"Jason"</span>,<span class="string">"Jack"</span>,<span class="string">"Lily"</span>];</div><div class="line">names.num = <span class="number">3</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;names.length;i++)&#123;</div><div class="line">  <span class="built_in">console</span>.log(names[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>输出正常，不会遍历对象的属性。这里的代码还可以优化一下。据大神们的测试，把length保存下来，性能上可以优化一下。如下:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> names = [<span class="string">"Jason"</span>,<span class="string">"Jack"</span>,<span class="string">"Lily"</span>];</div><div class="line">names.num = <span class="number">3</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>, len=names.length; i&lt;len;i++)&#123;</div><div class="line">  <span class="built_in">console</span>.log(names[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>万能的for循环还是比较好用的。</p>
-</blockquote>
-<p>forEach 方法为数组中含有有效值的每一项执行一次 callback 函数，已删除或者未赋值的项将被跳过。callback 函数会被依次传入三个参数：</p>
-<ul>
-<li>数组当前项的值</li>
-<li>数组当前项的索引</li>
-<li>数组对象本身</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> names = [<span class="string">"Jason"</span>,<span class="string">"Jack"</span>,<span class="string">"Lily"</span>];</div><div class="line">names.num = <span class="number">3</span>;</div><div class="line">names.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">name, index, arr</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(name);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Jason</div><div class="line">Jack</div><div class="line">Lily</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>forEach也有缺点。就是不能return、break。在遍历数组上性能也不能for</p>
-</blockquote>
-<h3 id="新方法-for-of"><a href="#新方法-for-of" class="headerlink" title="新方法 for-of"></a>新方法 for-of</h3><p>为解决for-in与forEach的问题。在ES6中引入了新方法 for-of 专注解决数组遍历问题。 以后for-in可以专心遍历对象的属性了~</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> names = [<span class="string">"Jason"</span>,<span class="string">"Jack"</span>,<span class="string">"Lily"</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> name <span class="keyword">of</span> names)&#123;</div><div class="line">  <span class="built_in">console</span>.log(name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>以上四种for循环方法各有优劣，应在实际项目中多加考虑。</p>
-
+        <p>有时候我们需要把JSON对象转化成GET请求来发送。这时候就需要我们写正则来进行转换了。</p>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">JsonToGetFun</span>(<span class="params">json</span>) </span>&#123; </div><div class="line">	str=<span class="built_in">JSON</span>.stringify(json);</div><div class="line">	str= str.replace(<span class="regexp">/\t/g</span>, <span class="string">""</span>);</div><div class="line">	str= str.replace(<span class="regexp">/\"/g</span>, <span class="string">""</span>).replace(<span class="regexp">/&#123;/g</span>, <span class="string">""</span>).replace(<span class="regexp">/&#125;/g</span>, <span class="string">""</span>).replace(<span class="regexp">/,/g</span>, <span class="string">"&amp;"</span>).replace(<span class="regexp">/:/g</span>, <span class="string">"="</span>);            </div><div class="line">	<span class="keyword">return</span> str;</div><div class="line"> &#125;</div><div class="line"><span class="keyword">var</span> json = &#123;</div><div class="line">	<span class="string">"name"</span>:<span class="string">"jason"</span>,</div><div class="line">	<span class="string">"age"</span>:<span class="number">27</span>,</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(JsonToGetFun(json));<span class="comment">// name=jason&amp;age=27</span></div></pre></td></tr></table></figure>
       
     </div>
 
@@ -373,7 +347,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/for/" rel="tag">#for</a>
+            <a href="/tags/JSON/" rel="tag">#JSON</a>
           
         </div>
       
@@ -382,16 +356,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/18/Git-常用命令大全/" rel="next" title="Git 常用命令大全">
-                <i class="fa fa-chevron-left"></i> Git 常用命令大全
+              <a href="/2016/11/25/js-regular/" rel="next" title="对正则表达式难点的理解">
+                <i class="fa fa-chevron-left"></i> 对正则表达式难点的理解
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/23/CSS3中的animation/" rel="prev" title="CSS3中的animation">
-                CSS3中的animation <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/06/js-animation-easeout/" rel="prev" title="Tip:JS缓动动画算法">
+                Tip:JS缓动动画算法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -418,8 +392,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/23/关于javascript中的for循环/"
-           data-title="关于javascript中的for循环" data-url="http://jason-zj.github.io/2016/11/23/关于javascript中的for循环/">
+      <div class="ds-thread" data-thread-key="2016/12/29/json-to-get/"
+           data-title="JSON对象转化GET请求" data-url="http://jason-zj.github.io/2016/12/29/json-to-get/">
       </div>
     
   </div>
@@ -464,7 +438,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -481,7 +455,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -548,7 +522,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#for-in-循环的坑"><span class="nav-number">1.</span> <span class="nav-text">for-in 循环的坑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for与foreach"><span class="nav-number">2.</span> <span class="nav-text">for与foreach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新方法-for-of"><span class="nav-number">3.</span> <span class="nav-text">新方法 for-of</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
@@ -567,7 +541,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
