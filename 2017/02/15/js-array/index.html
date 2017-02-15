@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Jason,blog" />
+  <meta name="keywords" content="数组," />
 
 
 
@@ -84,15 +84,16 @@
 
 
 
-<meta name="description" content="blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Blog - Jason">
-<meta property="og:url" content="http://jason-zj.github.io/tags/git/index.html">
+<meta name="description" content="js中对数组循环的方法有很多，都有各自的用途，但是经常会混淆用错，下面列出各种方法的区别与常用场景。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js中关于数组循环的各种方法的区别">
+<meta property="og:url" content="http://jason-zj.github.io/2017/02/15/js-array/index.html">
 <meta property="og:site_name" content="Blog - Jason">
-<meta property="og:description" content="blog">
+<meta property="og:description" content="js中对数组循环的方法有很多，都有各自的用途，但是经常会混淆用错，下面列出各种方法的区别与常用场景。">
+<meta property="og:updated_time" content="2017-02-15T06:54:03.773Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog - Jason">
-<meta name="twitter:description" content="blog">
+<meta name="twitter:title" content="js中关于数组循环的各种方法的区别">
+<meta name="twitter:description" content="js中对数组循环的方法有很多，都有各自的用途，但是经常会混淆用错，下面列出各种方法的区别与常用场景。">
 
 
 
@@ -113,10 +114,10 @@
 
 
 
-  <link rel="canonical" href="http://jason-zj.github.io/tags/git/"/>
+  <link rel="canonical" href="http://jason-zj.github.io/2017/02/15/js-array/"/>
 
 
-  <title> 标签: git | Blog - Jason </title>
+  <title> js中关于数组循环的各种方法的区别 | Blog - Jason </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -137,7 +138,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -235,46 +236,202 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        git
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                js中关于数组循环的各种方法的区别
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-15T14:02:59+08:00" content="2017-02-15">
+              2017-02-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/15/js-array/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/15/js-array/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
+      
+        <p>js中对数组循环的方法有很多，都有各自的用途，但是经常会混淆用错，下面列出各种方法的区别与常用场景。<br><a id="more"></a></p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th style="text-align:left">方法描述</th>
+<th style="text-align:left">返回值</th>
+<th style="text-align:left">函数接受参数</th>
+<th style="text-align:left">用途(参考)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>map</td>
+<td style="text-align:left">对数组的所有成员依次调用一个函数，根据函数结果返回一个新数组。</td>
+<td style="text-align:left">返回新数组,原数组不变</td>
+<td style="text-align:left">当前成员、当前位置、数组本身</td>
+<td style="text-align:left">适合数组值变动，返回新数组</td>
+</tr>
+<tr>
+<td>forEach</td>
+<td style="text-align:left">遍历数组的所有成员，执行某种操作</td>
+<td style="text-align:left">没有返回值</td>
+<td style="text-align:left">当前成员、当前位置、数组本身</td>
+<td style="text-align:left">适合不需要返回值的数组遍历，如改动数组里的值</td>
+</tr>
+<tr>
+<td>filter</td>
+<td style="text-align:left">所有数组成员依次执行该函数，返回结果为true的成员组成一个新数组返回</td>
+<td style="text-align:left">返回新数组,原数组不变</td>
+<td style="text-align:left">当前成员(、当前位置、数组本身)</td>
+<td style="text-align:left">筛选数组，返回新数组</td>
+</tr>
+<tr>
+<td>some/every</td>
+<td style="text-align:left">判断数组成员是否符合某种条件。some有真则返回true，every所有真才返回true</td>
+<td style="text-align:left">返回布尔值</td>
+<td style="text-align:left">当前成员、当前位置、数组本身</td>
+<td style="text-align:left">判断数组成员是否满足某种条件，返回布尔值</td>
+</tr>
+<tr>
+<td>reduce/reduceRight</td>
+<td style="text-align:left">依次处理数组的每个成员，最终累计为一个值。</td>
+<td style="text-align:left">返回一个值(string/num)</td>
+<td style="text-align:left">累积变量、当前变量(、当前位置、数组本身)</td>
+<td style="text-align:left">判断数组成员是否满足某种条件，返回布尔值</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>这几个方法里面，function是匿名函数，this指向的是window。如果需要使用当前环境，需要传入第二个参数来控制。</li>
+<li>forEach不可中断，如果需要中断，请使用for</li>
+<li>reduce方法第二个参数可以传入初始值。建议这样使用，防止空数组取不到值出错！</li>
+<li>方法也可以扩展，例：找出数组中最长的成员！也可以用reduce方法。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">findLongest</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> arr.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">longest, e</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> e.length &gt; longest.length ? e : longest;</div><div class="line">  &#125;, <span class="string">''</span>);</div><div class="line">&#125;</div><div class="line">findLongest([<span class="string">'aaa'</span>, <span class="string">'bb'</span>, <span class="string">'c'</span>]) <span class="comment">// "aaa"</span></div></pre></td></tr></table></figure>
+      
+    </div>
 
-      <h1 class="post-title">
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/11/18/git-command/" itemprop="url">
-              
-                <span itemprop="name">Git 常用命令大全</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-18T10:16:20+08:00"
-              content="2016-11-18" >
-          11-18
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数组/" rel="tag">#数组</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/06/js-animation-easeout/" rel="next" title="JS缓动动画算法">
+                <i class="fa fa-chevron-left"></i> JS缓动动画算法
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -282,6 +439,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/15/js-array/"
+           data-title="js中关于数组循环的各种方法的区别" data-url="http://jason-zj.github.io/2017/02/15/js-array/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -301,8 +466,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -390,6 +564,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -493,6 +678,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 
